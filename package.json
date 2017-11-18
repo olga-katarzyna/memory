@@ -1,14 +1,13 @@
 {
   "name": "basic-webpack-config",
-  "version": "1.0.0",
-  "description": "Podstawowy config webpacka",
+  "version": "0.1.0",
+  "description": "¯\\_(ツ)_//¯",
   "main": "js/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server"
   },
   "author": "Kuba Przetakiewicz",
-  "license": "ISC",
+  "license": "The Unlicense",
   "dependencies": {
     "react": "^16.0.0",
     "react-dom": "^16.0.0"

@@ -2,28 +2,18 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './js/app.js',
+  entry: './js/app.js', // do zmiany
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'app-bundled.js',
+    path: path.resolve(__dirname, 'dist'), // potencjalnie do zmiany?
+    filename: 'app-bundled.js', // do zmiany
     publicPath: '/'
   },
-  watch: true,
+  watch: true, // I see you
   module: {
     rules: [
       { 
-        test: /\.(js)$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-          query: { 
-            presets: ['es2015', 'stage-2', 'react']
-          }
-        }
-      },
-      { 
-        test: /\.(jsx)$/,
-        exclude: /(node_modules|bower_components)/,
+        test: /\.(js|jsx)$/,
+        exclude: /(node_modules)/,
         use: {
           loader: 'babel-loader',
           query: { 
