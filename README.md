@@ -1,7 +1,5 @@
 # webpack-config
 
-## Ahem. No to tak:
-
 W `package.json` wypisane są wszystkie potrzebne nam paczki, stąd jedyne co potrzebujemy z nim zrobić to `npm i`/`npm install` i wszystkie dependencje z pliku zostaną automatycznie ściągnięte i wrzucone do `./node_modules`.
 
 `webpack.config.js` zawiera cały config webpackowy, w tym standardowego watchera (_fuu_), jak i ustawienia dla `webpack-dev-server` (_yaaay_). `HtmlWebpackPlugin` automatycznie ładuje zbundlowany JS do podanego pliku HTML, w tym przypadku `index.html`. Ustawienia `historyApiFallback` będą nam potrzebne przy okazji React Router. **Jedyne co sobie edytujecie to tak naprawdę `entry` i `output.filename` (+ ew. `output.path`, jeśli `dist` Wam z jakiegoś powodu nie leży).**
@@ -10,24 +8,27 @@ W `package.json` wypisane są wszystkie potrzebne nam paczki, stąd jedyne co po
 
 `.gitignore` - well, wiadomka, żebyśmy za każdym razem nie pakowali 100 megów dziadostwa na Gita, `package.json` nam wystarczy. Tak samo `dist` jest nam w repo zbędny.
 
-###TODO: Zobowiązuję się niniejszym do zaktualizowania tego setupu po zakończeniu wszystkich prezek - wywalimy `watch: true;` na dobre i ogarniemy zajebisty `webpack-dev-server` ze wszystkimi fajnymi bajerami (SASSem np.), żeby chociaż projekty końcowe szły sprawniej jeśli chodzi o build \m/
+#### TODO: Zobowiązuję się niniejszym do zaktualizowania tego setupu po zakończeniu wszystkich prezek - wywalimy `watch: true;` na dobre i ogarniemy zajebisty `webpack-dev-server` ze wszystkimi fajnymi bajerami (SASSem np.), żeby chociaż projekty końcowe szły sprawniej jeśli chodzi o build \m/
 
-_a, no i z `.jsx`em się pożegnamy na zawsze, srsly - mamy 2017._
-https://github.com/facebookincubator/create-react-app/issues/87
+_a, no i z `.jsx`em* się pożegnamy na zawsze, srsly - mamy 2017._ (https://github.com/facebookincubator/create-react-app/issues/87)
+
+*nie składnią, a rozszerzeniem
 
 Strukturę katalogu sobie śmiało edytujcie, tylko pamiętajcie o zmianach `path`ów we wszystkich configach :)
 
-#### 1.
+Instalacja
+------
 ```
 npm i
 ```
 
-#### 2.
+Uruchomienie
+------
 ```
-webpack-dev-server
+npm start
 ```
 
-lub jeśli naprawdę musicie (soniamdisappoint.jpg)
+lub jeśli naprawdę musicie używać `webpack` bez servera:
 
 ```
 webpack
