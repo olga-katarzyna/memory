@@ -1,7 +1,7 @@
 # webpack-config
 
 ```
-├── src                         # główny folder, z którego pobierać będzie assety Webpack
+├── src                         # główny folder, z którego pobierać będzie pliki źródłowe Webpack
     ├── components
         ├── App
             ├── App.js
