@@ -30,9 +30,9 @@
 └── yarn.lock                   # lockfile dla Yarna
 ```
 
-W `package.json` wypisane są wszystkie potrzebne nam paczki, stąd jedyne co potrzebujemy z nim zrobić to `npm i` i wszystkie dependencje z pliku zostaną automatycznie ściągnięte i wrzucone do `./node_modules`.
+W `package.json` wypisane są wszystkie potrzebne nam paczki, stąd jedyne co potrzebujemy z nim zrobić to `npm i`/`yarn` i wszystkie dependencje z pliku zostaną automatycznie ściągnięte i wrzucone do `./node_modules`.
 
-`webpack.config.js` zawiera cały config webpackowy, w tym ustawienia dla `webpack-dev-server`. `HtmlWebpackPlugin` automatycznie ładuje zbundlowany JS do podanego pliku HTML, w tym przypadku `./src/index.html`. `historyApiFallback` poprawnie zwraca index.html w przypadku wystąpienia 404, co pozwala React Routerowi działać poprawnie. **Jedyne co sobie edytujecie to tak naprawdę `entry` i `output.filename` (+ ew. `output.path`, jeśli `dist` Wam z jakiegoś powodu nie leży).**
+`webpack.config.js` zawiera cały config webpackowy, w tym ustawienia dla `webpack-dev-server`. `HtmlWebpackPlugin` automatycznie ładuje zbundlowany JS do podanego pliku HTML (w tym przypadku `./src/index.html`), a `historyApiFallback` zwraca index.html w momencie wystąpienia 404, co pozwala React Routerowi działać poprawnie.
 
 `package-lock.json`/`yarn.lock` - lockfile dla konkretnych wersji paczek, przydatny, żebyśmy wszyscy byli na dokładnie tym samym setupie.
 
