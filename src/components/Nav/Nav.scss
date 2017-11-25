@@ -1,0 +1,30 @@
+$main-navigation-background-color: rgb(135, 211, 124);
+
+.main-navigation {
+    background-color: $main-navigation-background-color;
+}
+
+.main-navigation__item {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 10px 16px;
+    color: #333;
+
+    &.active {
+        color: white;
+
+        &:before {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-left-width: 10px;
+            border-right-width: 10px;
+            border-top-color: $main-navigation-background-color;
+        }
+    }
+}
