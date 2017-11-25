@@ -17,7 +17,8 @@ import {
 */
 
 import { Nav } from '../Nav/Nav';
-import { Users } from '../Users/Users';
+import Users from '../Users/Users';
+import { UserView } from '../UserView/UserView';
 import { Contact } from '../Contact/Contact';
 
 /*  
@@ -34,32 +35,47 @@ import { Contact } from '../Contact/Contact';
 import 'normalize.css';
 import './App.scss';
 
-/*  
-    Przykład wykorzystuje Stateless Functional Components, stąd brak klas.
-    Ich zapis jest też mocno uproszczony (wykorzystuje Arrow Functions z ES6).
-    Standardowy zapis wyglądałby tak:
+export default class App extends React.Component {
+    constructor(props) {
+        super(props);
 
-    export function App() {
+        this.state = {
+            navColorTheme: 'green'
+        }
+    }
+
+    toggleNavColorTheme = () => {
+        this.setState({
+            navColorTheme: this.state.navColorTheme === 'green' ? 'blue' : 'green'
+        });
+    }
+    
+    render() {   
         return (
-            [...]
+            <div className='container'>
+                <h1 className='app-title'>Basic App</h1>
+                <Nav colorTheme={this.state.navColorTheme}/>
+                <main>
+                    <Switch>
+                        <Route exact path='/' render={
+                            () => {
+                                return (
+                                    <div>
+                                        <div>Hello, World!</div>
+                                        <button style={{'marginTop': '10px'}} onClick={this.toggleNavColorTheme}>Toggle nav color theme</button>
+                                    </div>
+                                )
+                            }
+                        }></Route>
+                        <Route exact path='/users/:userId' component={UserView}></Route>
+                        <Route exact path='/users' component={Users}></Route>
+                        <Route path='/contact' component={Contact}></Route>
+                        <Route path='*' render={
+                            () => <div>Nie znaleziono strony.</div>
+                        }></Route>
+                    </Switch>
+                </main>
+            </div>
         )
     }
-*/
-
-export const App = () => {
-    return (
-        <div className='container'>
-            <h1 className='app-title'>Basic App</h1>
-            <Nav />
-            <main>
-                <Switch>
-                    <Route exact path='/' render={
-                        () => <div>Hello, World!</div>
-                    }></Route>
-                    <Route path='/users' component={Users}></Route>
-                    <Route path='/contact' component={Contact}></Route>
-                </Switch>
-            </main>
-        </div>
-    )
 };

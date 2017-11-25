@@ -2,6 +2,23 @@
 
 ```
 ├── src                         # główny folder, z którego pobierać będzie assety Webpack
+    ├── components
+        ├── App
+            ├── App.js
+            └── App.scss
+        ├── Contact
+            ├── Contact.js
+            └── Contact.scss
+        ├── Nav
+            ├── Nav.js
+            └── Nav.scss
+        ├── Users
+            ├── User
+                └── User.js
+            ├── Users.js
+            └── Users.scss
+        └── UserView
+            └── UserView.js
     ├── index.html              # template dla HtmlWebpackPlugin
     └── index.js                # główny plik wejściowy z całą naszą aplikacją
 ├── .gitignore
