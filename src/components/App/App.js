@@ -36,7 +36,7 @@ export default class App extends React.Component {
         this.setState({
           stringToCheck: this.input.value
         })
-        console.log(this.state.stringToCheck)
+        //console.log(this.state.stringToCheck)
     }
 //całe handleFile ubrać w componentDidMount
 
@@ -51,7 +51,14 @@ export default class App extends React.Component {
         var workbook = XLSX.read(data, {type:'binary'});
 
         var first_sheet_name = workbook.SheetNames[0];
-        var address_of_cell = 'B1';
+        var address_of_cell = 'A2';
+
+// znaleźć przeszukiwanie zakresu w internecie
+// lub dodać pętlę porównującą, a wynik (TAK lub NIE) zapisywać w state
+// (czyli nie zapisywać w state adresu komórki oraz oraz nie porównywać w render)
+// powyżej pętla zmieniająca adres komórki?
+//{s:{c:0, r:2}, e:{c:1, r:6}}
+
 
         /* Get worksheet */
         var worksheet = workbook.Sheets[first_sheet_name];
@@ -67,7 +74,24 @@ export default class App extends React.Component {
         })
 
 
-        console.log(this.state.cellToCheck);
+      //  console.log(sheet['!cols']);
+
+///////////////////
+
+// for(var R = range.s.r; R <= range.e.r; ++R) {
+// for(var C = range.s.c; C <= range.e.c; ++C) {
+// var cell_address = {1:1, 1:1};
+// /* if an A1-style address is needed, encode the address */
+// var cell_ref = XLSX.utils.encode_cell(cell_address);
+// }
+// }
+console.log({s:{c:0, r:2}, e:{c:1, r:6}})
+
+///////////////////
+
+
+
+
         /* DO SOMETHING WITH workbook HERE */
       };
       reader.readAsBinaryString(f);
@@ -84,7 +108,10 @@ export default class App extends React.Component {
             <input className='inputToCheck' type='text' ref={input=>this.input=input} />
             <button className='button' onClick={this.handleClick}>Sprawdź, czy klient jest w bazie</button>
             <div className='client'>Klient, którego szukasz: {this.state.stringToCheck}</div>
-            <div className='result'>Czy jest w bazie
+            <div className='result'>Czy jest w bazie?&nbsp;
+              {this.state.stringToCheck == this.state.cellToCheck && this.state.stringToCheck != '' ? 'TAK, znajdziesz go w pliku baza_klientow.xls'
+                                                                  : this.state.cellToCheck == '' ? ''
+                                                                  : this.state.stringToCheck == '' ? '' : 'NIE'}
             </div>
           </div>
         )
