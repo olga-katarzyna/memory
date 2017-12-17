@@ -26794,7 +26794,7 @@ var App = function (_React$Component) {
       _this.setState({
         stringToCheck: _this.input.value
       });
-      console.log(_this.state.stringToCheck);
+      //console.log(this.state.stringToCheck)
     };
 
     _this.handleFile = function (e) {
@@ -26806,7 +26806,14 @@ var App = function (_React$Component) {
         var workbook = _xlsx2.default.read(data, { type: 'binary' });
 
         var first_sheet_name = workbook.SheetNames[0];
-        var address_of_cell = 'B1';
+        var address_of_cell = 'A2';
+
+        // znaleźć przeszukiwanie zakresu w internecie
+        // lub dodać pętlę porównującą, a wynik (TAK lub NIE) zapisywać w state
+        // (czyli nie zapisywać w state adresu komórki oraz oraz nie porównywać w render)
+        // powyżej pętla zmieniająca adres komórki?
+        //{s:{c:0, r:2}, e:{c:1, r:6}}
+
 
         /* Get worksheet */
         var worksheet = workbook.Sheets[first_sheet_name];
@@ -26821,7 +26828,22 @@ var App = function (_React$Component) {
           cellToCheck: desired_value
         });
 
-        console.log(_this.state.cellToCheck);
+        //  console.log(sheet['!cols']);
+
+        ///////////////////
+
+        // for(var R = range.s.r; R <= range.e.r; ++R) {
+        // for(var C = range.s.c; C <= range.e.c; ++C) {
+        // var cell_address = {1:1, 1:1};
+        // /* if an A1-style address is needed, encode the address */
+        // var cell_ref = XLSX.utils.encode_cell(cell_address);
+        // }
+        // }
+        console.log({ s: { c: 0, r: 2 }, e: { c: 1, r: 6 } });
+
+        ///////////////////
+
+
         /* DO SOMETHING WITH workbook HERE */
       };
       reader.readAsBinaryString(f);
@@ -26871,7 +26893,8 @@ var App = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: 'result' },
-          'Czy jest w bazie'
+          'Czy jest w bazie?\xA0',
+          this.state.stringToCheck == this.state.cellToCheck && this.state.stringToCheck != '' ? 'TAK, znajdziesz go w pliku baza_klientow.xls' : this.state.cellToCheck == '' ? '' : this.state.stringToCheck == '' ? '' : 'NIE'
         )
       );
     }
@@ -57017,7 +57040,7 @@ exports = module.exports = __webpack_require__(44)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;\n  background-color: white;\n  box-sizing: content-box;\n}\n\n.image {\n  height: 300px;\n  width: 500px;\n  background-image: url(" + __webpack_require__(105) + ");\n  background-size: cover;\n  position: relative;\n  right: 25px;\n}\n\nbutton {\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  font-size: 15px;\n  height: 30px;\n  width: 224px;\n}\n\n.app-title {\n  font-size: 3em;\n  margin-left: 16px;\n}\n\nmain {\n  padding: 16px;\n}\n\n.mainBox {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin-top: 50px;\n  flex-wrap: wrap;\n  flex-direction: column;\n}\n\n.inputToCheck {\n  width: 220px;\n  height: 30px;\n}\n\n.button {\n  font-family: 'Poiret One', cursive;\n}\n\n#xlsxInput {\n  width: 100px;\n  height: 70px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-family: 'Poiret One', cursive;\n}\n\n.client {\n  width: 200px;\n  height: 40px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-family: 'Poiret One', cursive;\n  margin-top: 50px;\n}\n\n.result {\n  width: 200px;\n  height: 40px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-family: 'Poiret One', cursive;\n  margin-top: 10px;\n}", ""]);
+exports.push([module.i, "body {\n  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;\n  background-color: white;\n  box-sizing: content-box;\n}\n\n.image {\n  height: 300px;\n  width: 500px;\n  background-image: url(" + __webpack_require__(105) + ");\n  background-size: cover;\n  position: relative;\n  right: 25px;\n}\n\nbutton {\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  font-size: 15px;\n  height: 30px;\n  width: 224px;\n}\n\n.app-title {\n  font-size: 3em;\n  margin-left: 16px;\n}\n\nmain {\n  padding: 16px;\n}\n\n.mainBox {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin-top: 50px;\n  flex-wrap: wrap;\n  flex-direction: column;\n}\n\n.inputToCheck {\n  width: 220px;\n  height: 30px;\n}\n\n.button {\n  font-family: 'Poiret One', cursive;\n}\n\n#xlsxInput {\n  width: 100px;\n  height: 70px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-family: 'Poiret One', cursive;\n}\n\n.client {\n  width: 300px;\n  height: 40px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-family: 'Poiret One', cursive;\n  margin-top: 50px;\n}\n\n.result {\n  width: 500px;\n  height: 40px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-family: 'Poiret One', cursive;\n  line-height: 80%;\n}", ""]);
 
 // exports
 
