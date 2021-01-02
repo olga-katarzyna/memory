@@ -1,4 +1,4 @@
-const cardsImage = ["apple", "apple", "backpack", "backpack", "boots", "boots", "carrot", "carrot", "map", "map", "pippi", "pippi", "dog", "dog", "dora", "dora", "chicken", "chicken"];
+const cardsImage = ["img1", "img1", "img2", "img2", "img3", "img3", "img4", "img4", "img5", "img5", "img6", "img6", "img7", "img7", "img8", "img8", "img9", "img9"];
 
 let cards = document.querySelectorAll("div");
 cards = [...cards];
@@ -20,9 +20,9 @@ console.log(startTime)
 let score = "?";
 document.querySelector(".info").innerHTML = `
         <div class="module">
-            <p id="note">Twój wynik to: ${score} sekund</p>
+            <p id="note">Your score: ${score} seconds</p>
             <p id="time">${startTime}</p>
-            <button type="button" id="btn">jeszcze raz</button>
+            <button type="button" id="btn">once again</button>
         </div>
     `;
 // dotąd
@@ -57,7 +57,7 @@ const clickCard = function () {
           const endTime = new Date().getTime();
           const gameTime = (endTime - startTime) /1000
         // odtąd
-          document.getElementById("note").innerHTML = `Twój wynik to: ${gameTime} sekund`;
+          document.getElementById("note").innerHTML = `Your score: ${gameTime} seconds`;
 
 
 // dotąd
